@@ -2,6 +2,8 @@ package Chapter01;
 
 import org.junit.Test;
 
+import java.util.concurrent.Callable;
+
 /**
  * Created by jaekwonha on 2018. 11. 18..
  */
@@ -27,6 +29,13 @@ public class Question06 {
             System.out.println("Zzz");
             Thread.sleep(1000);
         })).start();
+//        new Thread(new Callable<Void>() {
+//            @Override
+//            public void call() throws Exception {
+//            System.out.println("Zzz");
+//            Thread.sleep(1000);
+//            }
+//        });
     }
 
     public static Runnable uncheck(RunnableEx runner) {
@@ -48,6 +57,9 @@ public class Question06 {
      * 추상 함수는 로직을 담을 수 없기 때문에 try catch 는 runner 의 함수를 실행시킬 uncheck 에서 해주는게 옳다
      *
      * FunctionalInterface 라는 것과 인터페이스의 함수에서도 throws Exception 이 가능하다는 것을 알았다
+     *
+     * Callable<Void> 를 쓸 수 없는 이유는 잘 모르겠다
+     * 일단 써보면 안된다.....
      */
 
 }
