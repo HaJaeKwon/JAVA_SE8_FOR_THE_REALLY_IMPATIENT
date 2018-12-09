@@ -21,9 +21,9 @@ public class Question12 {
     }
 
     public interface J {
-        default void stream1() {
-            System.out.println("stream2");
-        }
+//        default void stream1() {
+//            System.out.println("stream2");
+//        }
 
     }
 
