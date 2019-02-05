@@ -20,7 +20,7 @@ public class Question12 {
     /**
      * 64페이지에 있는 "2.13 병렬 스트림" 절에서 설명한 것처럼 AtomicInteger 배열을 업데이트하는 방법으로
      * 병렬 Stream<String> 에 있는 모든 짧은 단어의 개수를 세라
-     * 각 카운터를 안전하게 증가시키기 위해 원자적 메서드인 getAndIncrment 를 사용한다
+     * 각 카운터를 안전하게 증가시키기 위해 원자적 메서드인 getAndIncrement 를 사용한다
      */
     @Test
     public void solution() {
