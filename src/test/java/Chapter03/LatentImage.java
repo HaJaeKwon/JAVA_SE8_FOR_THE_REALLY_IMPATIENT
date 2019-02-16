@@ -30,4 +30,10 @@ public class LatentImage {
         pendingOperations.forEach(op -> in = Lecture.transform(in, op));
         return in;
     }
+
+    public Image toImageParallel() {
+        pendingOperations.forEach(op -> in = Lecture.convertColor2dArrayToImage(Lecture.parallelTransform(Lecture.convertImageToColor2dArray(in), op)));
+        return in;
+    }
+
 }

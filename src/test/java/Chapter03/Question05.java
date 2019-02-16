@@ -8,12 +8,10 @@ import org.junit.Test;
 import sun.java2d.cmm.ColorTransform;
 
 import javax.imageio.ImageIO;
-import java.awt.color.ColorSpace;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.InterfaceAddress;
 
 
 public class Question05 {
@@ -31,10 +29,10 @@ public class Question05 {
             FileInputStream inputStream = new FileInputStream("./src/test/java/Chapter03/eiffel-tower.jpg");
             Image image = new Image(inputStream);
 
-            Image frameImage = transform(image, (in, x, y, frame) -> {
-                if (x < frame || in.getWidth() - x < frame) {
+            Image frameImage = transform(image, (in, x, y) -> {
+                if (x < 10 || in.getWidth() - x < 10) {
                     return Color.GRAY;
-                } else if ( y < frame || in.getHeight() - y < frame) {
+                } else if ( y < 10 || in.getHeight() - y < 10) {
                     return Color.GRAY;
                 }
                 return in.getPixelReader().getColor(x, y);
@@ -54,7 +52,7 @@ public class Question05 {
         WritableImage out = new WritableImage(width, height);
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                out.getPixelWriter().setColor(x, y, colorTransformer.transform(in, x, y, 10));
+                out.getPixelWriter().setColor(x, y, colorTransformer.transform(in, x, y));
             }
         }
         return out;
@@ -62,6 +60,6 @@ public class Question05 {
 
     @FunctionalInterface
     interface ColorTransformer {
-        Color transform(Image in, int x, int y, int frame);
+        Color transform(Image in, int x, int y);
     }
 }

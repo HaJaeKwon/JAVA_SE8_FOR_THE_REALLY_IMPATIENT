@@ -151,7 +151,7 @@ public class Lecture {
         }
     }
 
-    public Color[][] convertImageToColor2dArray(Image in) {
+    public static Color[][] convertImageToColor2dArray(Image in) {
         int height = (int) in.getHeight();
         int width = (int) in.getWidth();
         Color[][] out = new Color[height][width];
@@ -163,7 +163,7 @@ public class Lecture {
         return out;
     }
 
-    public Image convertColor2dArrayToImage(Color[][] in) {
+    public static Image convertColor2dArrayToImage(Color[][] in) {
         int height = in.length;
         int width = in[0].length;
         WritableImage out = new WritableImage(width, height);
