@@ -25,15 +25,18 @@ public class Question03 {
             String contents = new String(Files.readAllBytes(Paths.get("./src/test/java/Chapter02/alice.txt")), StandardCharsets.UTF_8);
             List<String> words = Arrays.asList(contents.split("[\\P{L}]+"));
 
+            System.out.println(Runtime.getRuntime().availableProcessors());
+
             long start,end;
             int count;
             start = System.currentTimeMillis();
-            count = (int)words.stream().filter(w -> w.length() > 5).count();
+            count = (int)words.stream().filter(w -> { System.out.println(Thread.currentThread().getName()); return w.length() > 5; }).count();
             end = System.currentTimeMillis();
             System.out.println(String.format("stream result : %d. spend time : %d", count, end - start));
 
             start = System.currentTimeMillis();
-            count = (int)words.parallelStream().filter(w -> w.length() > 5).count();
+            count = (int)words.parallelStream().filter(w -> { System.out.println(Thread.currentThread().getName()); return w.length() > 5; }).count();
+//            count = (int)words.parallelStream().filter(w -> w.length() > 5).count();
             end = System.currentTimeMillis();
             System.out.println(String.format("parallelStream result : %d. spend time : %d", count, end - start));
 
@@ -46,5 +49,7 @@ public class Question03 {
      * strema : 329
      * parallelStream : 17
      * 연산의 순서가 상관없을때는 parallelStream을 쓰는 것이 좋아보인다
+     *
+     * 기본적으로 코어개수만큼 thread 만들어서 사용한다
      */
 }
