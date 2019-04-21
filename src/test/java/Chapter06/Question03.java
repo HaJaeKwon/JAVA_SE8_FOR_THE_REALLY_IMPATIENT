@@ -24,7 +24,7 @@ public class Question03 {
         AtomicLong atomicLong = new AtomicLong();
         LongAdder longAdder = new LongAdder();
 
-        ExecutorService pool = Executors.newCachedThreadPool();
+        ExecutorService pool = Executors.newFixedThreadPool(8);
         start = System.currentTimeMillis();
         for (int i=0; i<threadCount; i++) {
             pool.execute(new Thread (() -> {
@@ -37,7 +37,7 @@ public class Question03 {
         end = System.currentTimeMillis();
         System.out.println(String.format("AtomicLong : %d", end - start));
 
-        ExecutorService pool2 = Executors.newCachedThreadPool();
+        ExecutorService pool2 = Executors.newFixedThreadPool(8);
         start = System.currentTimeMillis();
         for (int i=0; i<threadCount; i++) {
             pool2.execute(new Thread (() -> {
