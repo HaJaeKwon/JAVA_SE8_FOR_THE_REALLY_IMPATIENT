@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -20,12 +19,10 @@ import java.util.stream.Collectors;
 /**
  * Created by hajaekwon on 2019-04-18.
  */
-public class Question05 {
+public class Question06 {
 
     /**
-     * 다수의 스레드가 파일 집합에서 모든 단어를 읽는 애플리케이션을 작성하라.
-     * 각 단어가 어느 파일들에서 나타나는지 추적하는 데 ConcurrentHashMap<String, Set<File>>을 사용하고,
-     * 맵을 업데이트하는 데 merge 메서드를 사용하라
+     * 앞의 연습문제를 반복하되, 이번에는 computeIfAbsent 를 사용하라. 이 접근법의 장점은 무엇인가?
      */
     @Test
     public void solution() {
@@ -46,9 +43,7 @@ public class Question05 {
                         String contents = new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
                         List<String> words = Arrays.asList(contents.split("[\\P{L}+]"));
                         for (String word : words) {
-                            Set<File> set = new LinkedHashSet<>();
-                            set.add(file);
-                            map.merge(word.toLowerCase(), set, (a,b) -> {a.add(file); return a;});
+                            map.computeIfAbsent(word.toLowerCase(), k -> new LinkedHashSet<>()).add(file);
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -69,5 +64,10 @@ public class Question05 {
         }
 
     }
+
+    /**
+     * merge 를 쓸때는 미리 Set<File> 을 만들고 (필요없을때도) 없다면 add 해주는 방식이였는데
+     * computeIfAbsent 는 필요할 때만 (기존에 없었을 때만) 생성 할 수 있다는 장점이 있다!
+     */
 
 }
