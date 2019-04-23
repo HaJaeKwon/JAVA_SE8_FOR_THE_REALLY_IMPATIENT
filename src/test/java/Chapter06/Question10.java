@@ -16,6 +16,7 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 public class Question10 {
 
@@ -88,22 +89,40 @@ public class Question10 {
     public CompletableFuture<String> readPage(URL url) {
         CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
             StringBuffer content = new StringBuffer();
-            try {
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("GET");
 
-                BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                String inputLine;
-                while( (inputLine = in.readLine()) != null ) {
-                    content.append(inputLine);
-                }
-                connection.disconnect();
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()))) {
+                Stream<String> lines = reader.lines();
+                lines.forEach(s -> content.append(s));
             } catch (IOException e) {
                 e.printStackTrace();
             }
+//            try {
+//                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+//                connection.setRequestMethod("GET");
+//
+//                BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+//                String inputLine;
+//                while( (inputLine = in.readLine()) != null ) {
+//                    content.append(inputLine);
+//                }
+//                connection.disconnect();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
             return content.toString();
         });
         return future;
     }
+
+    /**
+     * html 파싱을 쉽게 하는 방법으로는 tag를 먼저 찾고! 그 안에서 다시 필요한 영역을 파싱하는 것이다.
+     * [^\"]* 로 하면 따옴표를 제외하고 capture 가능하다
+     *
+     * (?i)는 대소문자 구분을 하지 않겠다는 뜻
+     * href, HREF 모두 capture 가능하다
+     *
+     * try with resources 방식을 통해 url에서 입력객체를 열고 닫을 수 있다.
+     * try with resources 는 AutoClosable 인터페이스 구현체들만 들어갈 수 있다
+     */
 
 }
