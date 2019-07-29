@@ -28,4 +28,7 @@ public class Question11 {
         int flightTime = (int)startTime.until(arriveTime, ChronoUnit.MINUTES);
         return LocalTime.of(flightTime/60, flightTime%60);
     }
+    /**
+     * 시간 간격을 구할때는 until 을 사용한다
+     */
 }

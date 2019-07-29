@@ -7,6 +7,11 @@ import java.util.function.Supplier;
 
 public class Question16 {
 
+    /**
+     * 85페이지에 있는 "3.8 예외 다루기"절에서 살펴본 doInOrderAsync를 구현하라
+     * 여기서 두 번째 파라미터는 BiConsumer<T, Throwable>이다
+     * 타당한 용도를 제시하라. 여전히 세 번째 파라미터가 필요한가?
+     */
     @Test
     public void solution() {
         doInOrderAsync(() -> "s", (s, t) -> {

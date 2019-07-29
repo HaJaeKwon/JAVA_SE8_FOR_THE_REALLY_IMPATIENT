@@ -10,7 +10,7 @@ public class Question08 {
 
     /**
      * 현재 시간 인스턴트에 대해 지원되는 모든 시간대에서 오늘 날짜의 오프셋을 구하라
-     * 이때 ZoneId.getAvailableIds를 스트림으로 전환하고, 스트림 연산을 이용해 작업한다ㅓ
+     * 이때 ZoneId.getAvailableIds를 스트림으로 전환하고, 스트림 연산을 이용해 작업한다
      */
 
     @Test

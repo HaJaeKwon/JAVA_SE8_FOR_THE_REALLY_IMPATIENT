@@ -17,4 +17,7 @@ public class Question01 {
         System.out.println(programmersDay.getMonth());
         System.out.println(programmersDay.getDayOfMonth());
     }
+    /**
+     * plus(Period.ofDays(255)) 를 사용했다
+     */
 }

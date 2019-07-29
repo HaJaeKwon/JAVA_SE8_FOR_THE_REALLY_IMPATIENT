@@ -9,6 +9,10 @@ import java.util.function.Consumer;
 
 public class Question17 {
 
+    /**
+     * first와 second를 병렬로 실행하는 doInParallelAsync(Runnable first, Runnable second, Consumer<Throwable> handler) 메서드를 구현하라
+     * 만일 이 둘의 메서드에서 예외를 던지면 handler를 호출한다
+     */
     @Test
     public void solution() {
         doInParallelAsync(

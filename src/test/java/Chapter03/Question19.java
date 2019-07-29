@@ -10,6 +10,11 @@ import java.util.stream.Stream;
 
 public class Question19 {
 
+    /**
+     * Stream<T> 메서드인 <U> U reduce(U identity, BiFunction<U, ? super T, U> accumulator, BunaryOperator<U> combiner)를 살펴보자
+     * BiFunction의 첫번째 타입 인자에서 U를 ? super U로 선언해야 하는가?
+     * 해야 하는 이유 또는 하면 안되는 이유는 무엇인가?
+     */
     @Test
     public void solution() {}
 
