@@ -19,9 +19,9 @@ public class Question03 {
         int a = 1029;
         int b = 1071;
 
-        System.out.println(GCM_FloorMod(a,b));
-        System.out.println(GCM_Moduler(a,b));
-        System.out.println(GCM_Rem(a,b));
+        System.out.println(GCM_FloorMod(a, b));
+        System.out.println(GCM_Moduler(a, b));
+        System.out.println(GCM_Rem(a, b));
     }
 
     public int GCM_Moduler(int a, int b) {
@@ -58,7 +58,7 @@ public class Question03 {
             b = a - b;
             a = a - b;
         }
-        int r = (int)Math.IEEEremainder((double)a, (double)b);
+        int r = (int) Math.IEEEremainder((double) a, (double) b);
         return GCM_Rem(b, r);
     }
 

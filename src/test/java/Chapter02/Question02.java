@@ -25,7 +25,10 @@ public class Question02 {
             String contents = new String(Files.readAllBytes(Paths.get("./src/test/java/Chapter02/alice.txt")), StandardCharsets.UTF_8);
             List<String> words = Arrays.asList(contents.split("[\\P{L}+]"));
 
-            words.stream().filter(w -> { System.out.println(w); return w.length() > 5; }).limit(5).collect(Collectors.toList());
+            words.stream().filter(w -> {
+                System.out.println(w);
+                return w.length() > 5;
+            }).limit(5).collect(Collectors.toList());
         } catch (IOException e) {
             e.printStackTrace();
         }

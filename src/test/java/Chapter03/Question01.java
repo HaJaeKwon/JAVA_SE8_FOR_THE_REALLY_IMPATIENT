@@ -22,7 +22,7 @@ public class Question01 {
     public void solution() {
         int[] a = new int[20];
         Arrays.fill(a, 0);
-        for (int i=0; i<20; i++) {
+        for (int i = 0; i < 20; i++) {
             final int j = i;
             logIf(Level.FINEST, () -> j == 10, () -> "a[10] = " + a[10]);
         }

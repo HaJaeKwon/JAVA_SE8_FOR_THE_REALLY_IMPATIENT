@@ -24,17 +24,17 @@ public class Question09 {
     @Test
     public void solution() {
 
-        final int length=20;
-        int[][] base = {{1,1},{1,0}};
+        final int length = 20;
+        int[][] base = {{1, 1}, {1, 0}};
 
         int[][][] fibo = new int[length][2][2];
         Arrays.parallelSetAll(fibo, idx -> base);
 
-        BinaryOperator op = (x, y) -> Matrix.multi((int[][])x, (int[][])y);
+        BinaryOperator op = (x, y) -> Matrix.multi((int[][]) x, (int[][]) y);
 
         Arrays.parallelPrefix(fibo, op);
 
-        for(int i=0; i<length; i++) {
+        for (int i = 0; i < length; i++) {
             System.out.println(i + "th fibo number : " + fibo[i][0][0]);
         }
     }
@@ -49,16 +49,16 @@ public class Question09 {
 
             int[][] result = new int[aX][bY];
 
-            for(int i=0; i<aX; i++) {
-                for(int j=0; j<bY; j++) {
+            for (int i = 0; i < aX; i++) {
+                for (int j = 0; j < bY; j++) {
                     result[i][j] = 0;
                 }
             }
 
-            for(int i=0; i<aX; i++) {
-                for(int j=0; j<bY; j++) {
-                    for(int k=0; k<aY; k++) {
-                        result[i][j]+=a[i][k]*b[k][j];
+            for (int i = 0; i < aX; i++) {
+                for (int j = 0; j < bY; j++) {
+                    for (int k = 0; k < aY; k++) {
+                        result[i][j] += a[i][k] * b[k][j];
                     }
                 }
             }

@@ -32,14 +32,14 @@ public class Question05 {
             int limit = 5;
             int step = 12;
 
-            for(int i=0; i<step; i++) words.addAll(words);
+            for (int i = 0; i < step; i++) words.addAll(words);
             System.out.println(words.size());
 
             Predicate<String> p = w -> w.length() > limit;
 
             start = System.currentTimeMillis();
-            for(Iterator it = words.iterator(); it.hasNext();) {
-                if (p.test((String)it.next())) {
+            for (Iterator it = words.iterator(); it.hasNext(); ) {
+                if (p.test((String) it.next())) {
                     it.remove();
                 }
             }
@@ -48,14 +48,14 @@ public class Question05 {
             System.out.printf("iter remove %d ms %d\n", end - start, result3);
 
             words = new java.util.ArrayList<>(Arrays.asList(contents.split("[\\P{L}]+")));
-            for(int i=0; i<step; i++) words.addAll(words);
+            for (int i = 0; i < step; i++) words.addAll(words);
             start = System.currentTimeMillis();
             long result1 = words.stream().filter(p.negate()).count();
             end = System.currentTimeMillis();
             System.out.printf("stream %d ms %d\n", end - start, result1);
 
             words = new java.util.ArrayList<>(Arrays.asList(contents.split("[\\P{L}]+")));
-            for(int i=0; i<step; i++) words.addAll(words);
+            for (int i = 0; i < step; i++) words.addAll(words);
             start = System.currentTimeMillis();
             words.removeIf(p);
             long result2 = words.size();

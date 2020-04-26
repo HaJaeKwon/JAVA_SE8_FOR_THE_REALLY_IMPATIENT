@@ -41,14 +41,17 @@ public class Question05 {
 
             ExecutorService pool = Executors.newCachedThreadPool();
             for (File file : fileSet) {
-                pool.execute(new Thread (() -> {
+                pool.execute(new Thread(() -> {
                     try {
                         String contents = new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
                         List<String> words = Arrays.asList(contents.split("[\\P{L}+]"));
                         for (String word : words) {
                             Set<File> set = new LinkedHashSet<>();
                             set.add(file);
-                            map.merge(word.toLowerCase(), set, (a,b) -> {a.add(file); return a;});
+                            map.merge(word.toLowerCase(), set, (a, b) -> {
+                                a.add(file);
+                                return a;
+                            });
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -59,7 +62,7 @@ public class Question05 {
 
             map.forEach((key, fileSet1) -> {
                 System.out.println("key : " + key);
-                for(File f : fileSet1) {
+                for (File f : fileSet1) {
                     System.out.println("file : " + f.getName());
                 }
             });

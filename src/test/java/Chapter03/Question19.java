@@ -16,7 +16,8 @@ public class Question19 {
      * 해야 하는 이유 또는 하면 안되는 이유는 무엇인가?
      */
     @Test
-    public void solution() {}
+    public void solution() {
+    }
 
     public static ArrayList<String> reduce(BiFunction<? super ArrayList<String>, ? super ArrayList<String>, ArrayList<String>> accumulator) {
         ArrayList<String> arr1 = new ArrayList<>();

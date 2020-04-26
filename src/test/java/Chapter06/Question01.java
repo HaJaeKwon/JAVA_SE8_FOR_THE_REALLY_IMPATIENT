@@ -32,12 +32,12 @@ public class Question01 {
             List<String> words = Arrays.asList(contents.split("[\\P{L}]+"));
 
             int core = Runtime.getRuntime().availableProcessors();
-            int step = (int) Math.ceil((double)words.size() / core);
+            int step = (int) Math.ceil((double) words.size() / core);
             ExecutorService pool = Executors.newFixedThreadPool(core);
-            for (int i=0; i<core; i++) {
+            for (int i = 0; i < core; i++) {
                 final int index = i;
                 pool.submit(() -> {
-                    for (String word : words.subList( (index*step), Math.min((index+1)*step, words.size()))) {
+                    for (String word : words.subList((index * step), Math.min((index + 1) * step, words.size()))) {
                         result.accumulateAndGet(Long.valueOf(word.length()), Math::max);
                     }
                 });

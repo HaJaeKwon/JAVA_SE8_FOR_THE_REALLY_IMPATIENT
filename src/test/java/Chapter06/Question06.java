@@ -38,7 +38,7 @@ public class Question06 {
 
             ExecutorService pool = Executors.newCachedThreadPool();
             for (File file : fileSet) {
-                pool.execute(new Thread (() -> {
+                pool.execute(new Thread(() -> {
                     try {
                         String contents = new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
                         List<String> words = Arrays.asList(contents.split("[\\P{L}+]"));
@@ -54,7 +54,7 @@ public class Question06 {
 
             map.forEach((key, fileSet1) -> {
                 System.out.println("key : " + key);
-                for(File f : fileSet1) {
+                for (File f : fileSet1) {
                     System.out.println("file : " + f.getName());
                 }
             });

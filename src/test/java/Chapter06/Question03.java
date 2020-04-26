@@ -26,9 +26,9 @@ public class Question03 {
 
         ExecutorService pool = Executors.newFixedThreadPool(8);
         start = System.currentTimeMillis();
-        for (int i=0; i<threadCount; i++) {
-            pool.execute(new Thread (() -> {
-                for (int j=0; j<MAX; j++) {
+        for (int i = 0; i < threadCount; i++) {
+            pool.execute(new Thread(() -> {
+                for (int j = 0; j < MAX; j++) {
                     atomicLong.incrementAndGet();
                 }
             }));
@@ -39,9 +39,9 @@ public class Question03 {
 
         ExecutorService pool2 = Executors.newFixedThreadPool(8);
         start = System.currentTimeMillis();
-        for (int i=0; i<threadCount; i++) {
-            pool2.execute(new Thread (() -> {
-                for (int j=0; j<MAX; j++) {
+        for (int i = 0; i < threadCount; i++) {
+            pool2.execute(new Thread(() -> {
+                for (int j = 0; j < MAX; j++) {
                     longAdder.increment();
                 }
             }));

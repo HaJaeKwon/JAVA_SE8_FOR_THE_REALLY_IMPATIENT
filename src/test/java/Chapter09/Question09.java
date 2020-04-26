@@ -9,9 +9,9 @@ public class Question09 {
     /**
      * 다음 클래스의 equals와 hashCode 메서드를 구현하라
      * public class LabeledPoint {
-     *     private String label;
-     *     private int x;
-     *     private int y;
+     * private String label;
+     * private int x;
+     * private int y;
      * }
      */
     @Test

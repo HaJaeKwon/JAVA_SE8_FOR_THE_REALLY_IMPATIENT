@@ -27,15 +27,21 @@ public class Question03 {
 
             System.out.println(Runtime.getRuntime().availableProcessors());
 
-            long start,end;
+            long start, end;
             int count;
             start = System.currentTimeMillis();
-            count = (int)words.stream().filter(w -> { System.out.println(Thread.currentThread().getName()); return w.length() > 5; }).count();
+            count = (int) words.stream().filter(w -> {
+                System.out.println(Thread.currentThread().getName());
+                return w.length() > 5;
+            }).count();
             end = System.currentTimeMillis();
             System.out.println(String.format("stream result : %d. spend time : %d", count, end - start));
 
             start = System.currentTimeMillis();
-            count = (int)words.parallelStream().filter(w -> { System.out.println(Thread.currentThread().getName()); return w.length() > 5; }).count();
+            count = (int) words.parallelStream().filter(w -> {
+                System.out.println(Thread.currentThread().getName());
+                return w.length() > 5;
+            }).count();
 //            count = (int)words.parallelStream().filter(w -> w.length() > 5).count();
             end = System.currentTimeMillis();
             System.out.println(String.format("parallelStream result : %d. spend time : %d", count, end - start));

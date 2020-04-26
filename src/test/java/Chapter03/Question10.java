@@ -20,7 +20,7 @@ public class Question10 {
      * 다음과 같이 호출할 수 없는 이유는 무엇인가?
      * UnaryOperator op = Color::brighter;
      * Image finalImage = transform(image, op.compose(Color::grayscale));
-     *
+     * <p>
      * compose 메서드의 리턴 타입이 UnaryOperator<T> 임을 주의 깊게 살펴보자
      * transform 메서드에는 이 타입이 적합하지 않은 이유가 무엇인가?
      * 함수 합성과 관련해 구조적 타입과 명목적 타입의 유용성에 관해서 어떻게 설명할 수 있는가?

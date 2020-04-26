@@ -27,16 +27,16 @@ public class Lecture {
 
     @Test
     public void lecture02() {
-        repeatWithParameter(10, i -> System.out.println("Countdown: " + (9-i)));
+        repeatWithParameter(10, i -> System.out.println("Countdown: " + (9 - i)));
         repeatWithNoParameter(10, () -> System.out.println("Hello World!"));
     }
 
     public static void repeatWithParameter(int n, IntConsumer action) {
-        for (int i=0; i<n; i++) action.accept(n);
+        for (int i = 0; i < n; i++) action.accept(n);
     }
 
     public static void repeatWithNoParameter(int n, Runnable action) {
-        for (int i=0; i<n; i++) action.run();
+        for (int i = 0; i < n; i++) action.run();
     }
 
     @Test
@@ -186,7 +186,7 @@ public class Lecture {
             ExecutorService pool = Executors.newCachedThreadPool();
             for (int i = 0; i < n; i++) {
                 int fromY = i * height / n;
-                int toY = (i+1) * height / n;
+                int toY = (i + 1) * height / n;
                 pool.submit(() -> {
                     for (int x = 0; x < width; x++) {
                         for (int y = fromY; y < toY; y++) {
@@ -231,13 +231,13 @@ public class Lecture {
     }
 
     public static <T> Supplier<T> unchecked(Callable<T> f) {
-       return () -> {
-           try {
-               return f.call();
-           } catch (Exception e) {
-               throw new RuntimeException(e);
-           }
-       };
+        return () -> {
+            try {
+                return f.call();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        };
     }
 
     @Test
@@ -297,6 +297,7 @@ public class Lecture {
 
     class Person {
         String name;
+
         public String getName() {
             return name;
         }
@@ -304,6 +305,7 @@ public class Lecture {
 
     class Child extends Person {
         String age;
+
         public String getAge() {
             return age;
         }
@@ -311,12 +313,11 @@ public class Lecture {
 
     class Student extends Child {
         String school;
+
         public String getSchool() {
             return school;
         }
     }
-
-
 
 
 }

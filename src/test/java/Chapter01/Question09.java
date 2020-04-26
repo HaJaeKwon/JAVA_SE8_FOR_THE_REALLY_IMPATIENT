@@ -12,17 +12,17 @@ import java.util.function.Predicate;
 public class Question09 {
 
     /**
-     *  Collection 으로부터 Collection2라는 서브클래스를 만들고
-     *  filter가 true를 리턴하는 각 요소를 대상으로 액션(action)을 적용하는 디폴트 메서드인
-     *  void forEachIf(Consumer<T> action, Predicate<T>)를 추가하라
-     *  이 디폴트 메서드를 어떻게 사용할 수 있는가
+     * Collection 으로부터 Collection2라는 서브클래스를 만들고
+     * filter가 true를 리턴하는 각 요소를 대상으로 액션(action)을 적용하는 디폴트 메서드인
+     * void forEachIf(Consumer<T> action, Predicate<T>)를 추가하라
+     * 이 디폴트 메서드를 어떻게 사용할 수 있는가
      */
     public interface Collection2<T> extends Collection<T> {
         default void forEachIf(Consumer<T> action, Predicate<T> filter) {
             Iterator<T> iter = iterator();
-            while(iter.hasNext()) {
+            while (iter.hasNext()) {
                 T item = iter.next();
-                if(filter.test(item)) {
+                if (filter.test(item)) {
                     action.accept(item);
                 }
             }

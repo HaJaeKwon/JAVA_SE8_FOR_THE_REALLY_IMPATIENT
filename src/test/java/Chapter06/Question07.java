@@ -19,14 +19,14 @@ public class Question07 {
     public void solution() {
         ConcurrentHashMap<String, Long> map = new ConcurrentHashMap<>();
 
-        for (int i=0; i<1000; i++) {
+        for (int i = 0; i < 1000; i++) {
             Random random = new Random();
-            map.put(i+"", random.nextLong());
+            map.put(i + "", random.nextLong());
 //            map.put(i+"", (long)i);
         }
 
         Long result = map.reduceEntries(500, (k, v) -> {
-            if (k.getValue() < v.getValue()){
+            if (k.getValue() < v.getValue()) {
                 return v;
             }
             return k;

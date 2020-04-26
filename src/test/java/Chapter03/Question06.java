@@ -25,7 +25,7 @@ public class Question06 {
             FileInputStream inputStream = new FileInputStream("./src/test/java/Chapter03/eiffel-tower.jpg");
             Image image = new Image(inputStream);
 //            Image brightenImage = transform(image, (c, factor) -> c.deriveColor(0,1, factor, 1), 1.5);
-            Image brightenImage = transform(image, (c, factor) -> c.deriveColor(0,1,factor,1), 1.5);
+            Image brightenImage = transform(image, (c, factor) -> c.deriveColor(0, 1, factor, 1), 1.5);
 
             File outputFile = new File("./src/test/java/Chapter03/brightenImage2.png");
             BufferedImage outputImage = SwingFXUtils.fromFXImage(brightenImage, null);
@@ -34,6 +34,7 @@ public class Question06 {
             e.printStackTrace();
         }
     }
+
     public static <T> Image transform(Image in, BiFunction<Color, T, Color> f, T arg) {
         int width = (int) in.getWidth();
         int height = (int) in.getHeight();

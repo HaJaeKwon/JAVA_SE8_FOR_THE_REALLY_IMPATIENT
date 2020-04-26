@@ -19,7 +19,7 @@ public class Question04 {
     public void solution() {
         File[] arr = Paths.get("/Users", "jaekwonha", "workspace").toFile().listFiles();
 
-        Arrays.sort(arr, (x,y) -> {
+        Arrays.sort(arr, (x, y) -> {
             if (x.isDirectory() == y.isDirectory()) {
                 return x.getAbsolutePath().toLowerCase().compareTo(y.getAbsolutePath().toLowerCase());
             }

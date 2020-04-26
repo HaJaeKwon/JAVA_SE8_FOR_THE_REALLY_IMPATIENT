@@ -15,15 +15,15 @@ public class Question04 {
 
     @Test
     public void solution() {
-        int[] items = {1,2,3,4,5};
+        int[] items = {1, 2, 3, 4, 5};
         int threadCount = 4;
 
         try {
             LongAccumulator maxLongAccumulator = new LongAccumulator(Long::max, Long.MIN_VALUE);
             ExecutorService pool = Executors.newFixedThreadPool(8);
-            for (int i=0; i<threadCount; i++) {
-                pool.execute(new Thread (() -> {
-                    int item = items[(int)Thread.currentThread().getId()%items.length];
+            for (int i = 0; i < threadCount; i++) {
+                pool.execute(new Thread(() -> {
+                    int item = items[(int) Thread.currentThread().getId() % items.length];
                     System.out.println(String.format("max insert : %d", item));
                     maxLongAccumulator.accumulate(item);
                 }));
@@ -35,9 +35,9 @@ public class Question04 {
 
             LongAccumulator minLongAccumulator = new LongAccumulator(Long::min, Long.MAX_VALUE);
             pool = Executors.newFixedThreadPool(8);
-            for (int i=0; i<threadCount; i++) {
-                pool.execute(new Thread (() -> {
-                    long item = (long)items[(int)Thread.currentThread().getId()%items.length];
+            for (int i = 0; i < threadCount; i++) {
+                pool.execute(new Thread(() -> {
+                    long item = (long) items[(int) Thread.currentThread().getId() % items.length];
                     System.out.println(String.format("min insert : %d", item));
                     minLongAccumulator.accumulate(item);
                 }));

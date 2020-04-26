@@ -26,8 +26,8 @@ public class Question05 {
     public void solution() throws IOException {
         byte[] bytes = Files.readAllBytes(Paths.get("src", "test", "java", "Chapter06", "alice-the-pool-of-tears.txt"));
         byte[] reverseBytes = new byte[bytes.length];
-        for(int i=0; i<bytes.length; i++) {
-            reverseBytes[bytes.length-i-1] = bytes[i];
+        for (int i = 0; i < bytes.length; i++) {
+            reverseBytes[bytes.length - i - 1] = bytes[i];
         }
         Files.write(Paths.get("src", "test", "java", "Chapter09", "out05.txt"), reverseBytes);
     }

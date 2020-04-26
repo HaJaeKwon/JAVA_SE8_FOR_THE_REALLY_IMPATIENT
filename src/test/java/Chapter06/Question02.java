@@ -20,7 +20,7 @@ public class Question02 {
 
         final LongAdder adder = new LongAdder();
         start = System.currentTimeMillis();
-        for(int i=0; i<loopCount; i++) {
+        for (int i = 0; i < loopCount; i++) {
             adder.increment();
         }
         end = System.currentTimeMillis();
@@ -28,8 +28,8 @@ public class Question02 {
 
         long l = 0L;
         start = System.currentTimeMillis();
-        for(int i=0; i<loopCount; i++) {
-            l = l+1;
+        for (int i = 0; i < loopCount; i++) {
+            l = l + 1;
         }
         end = System.currentTimeMillis();
         System.out.println(end - start);

@@ -25,9 +25,9 @@ public class Question16 {
         String reg = "(?<si>[0-9]{2})(?<gu>[0-9]{1})(?<street>[0-9]{2})";
         Pattern pattern = Pattern.compile(reg);
 
-        for(String str : lines) {
+        for (String str : lines) {
             Matcher m = pattern.matcher(str);
-            if(m.matches()) {
+            if (m.matches()) {
                 String si = m.group("si");
                 String gu = m.group("gu");
                 String street = m.group("street");

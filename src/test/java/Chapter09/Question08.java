@@ -15,7 +15,7 @@ public class Question08 {
     }
 
     public int compareTo(Point a, Point b) {
-        int diff =  a.x == b.x ? 0 : a.x < b.x ? -1 : 1;
+        int diff = a.x == b.x ? 0 : a.x < b.x ? -1 : 1;
         if (diff != 0) return diff;
         return a.y == b.y ? 0 : a.y < b.y ? -1 : 1;
     }

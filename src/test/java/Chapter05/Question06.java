@@ -18,8 +18,8 @@ public class Question06 {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-        while(day13.getYear()/100 + 1 == 20) {
-            if(day13.getDayOfWeek() == DayOfWeek.FRIDAY) {
+        while (day13.getYear() / 100 + 1 == 20) {
+            if (day13.getDayOfWeek() == DayOfWeek.FRIDAY) {
                 System.out.println(formatter.format(day13));
             }
             day13 = day13.plusMonths(1L);

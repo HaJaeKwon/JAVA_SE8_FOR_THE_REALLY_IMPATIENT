@@ -59,13 +59,13 @@ public class Question01 {
 
             int cores = Runtime.getRuntime().availableProcessors();
             long[] results = new long[cores];
-            int step = (int) Math.ceil((double)words.size() / cores);
+            int step = (int) Math.ceil((double) words.size() / cores);
             int limit = 5;
-            for (int i=0; i<cores; i++) {
-                words.subList(0,0);
+            for (int i = 0; i < cores; i++) {
+                words.subList(0, 0);
                 final int index = i;
                 Thread thread = new Thread(() -> {
-                    results[index] = words.subList( (index*step), Math.min((index+1)*step, words.size()) ).stream().filter(w -> w.length() > limit).count();
+                    results[index] = words.subList((index * step), Math.min((index + 1) * step, words.size())).stream().filter(w -> w.length() > limit).count();
                     System.out.println(Thread.currentThread().getId());
                 });
                 thread.run();
@@ -83,7 +83,6 @@ public class Question01 {
      * subList를 이용해 나눈 List를 각 thread에 할당해주고 result값을 모았다
      * 단일 카운터를 업데이트하는 상황이란 단일 카운터가 thread safe하지 않기 때문이다
      */
-
 
 
 }

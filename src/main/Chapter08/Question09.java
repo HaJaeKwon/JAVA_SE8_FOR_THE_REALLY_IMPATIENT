@@ -34,13 +34,14 @@ public class Question09 {
         Iterator var1 = new Iterator<Integer>() {
             Integer next = null;
             boolean endFlag = false;
+
             @Override
             public boolean hasNext() {
                 System.out.println("hasNext");
                 if (endFlag) {
                     return false;
                 }
-                if(this.next != null) {
+                if (this.next != null) {
                     System.out.println(next);
                     return true;
                 } else {
@@ -59,25 +60,26 @@ public class Question09 {
             @Override
             public Integer next() {
                 System.out.println("next");
-                if(this.next == null && !this.hasNext()) {
+                if (this.next == null && !this.hasNext()) {
                     throw new NoSuchElementException();
                 } else {
                     Integer var1 = this.next;
                     this.next = null;
-                    if (var1 <= 0) endFlag=true;
+                    if (var1 <= 0) endFlag = true;
                     return var1;
                 }
             }
         };
-        return StreamSupport.stream(Spliterators.spliteratorUnknownSize(var1 ,272), false);
+        return StreamSupport.stream(Spliterators.spliteratorUnknownSize(var1, 272), false);
     }
 
     public static Stream<Double> getDoubleStream(Scanner sc) {
         Iterator var1 = new Iterator<Double>() {
             Double next = null;
+
             @Override
             public boolean hasNext() {
-                if(this.next != null) {
+                if (this.next != null) {
                     return true;
                 } else {
                     this.next = sc.nextDouble();
@@ -87,7 +89,7 @@ public class Question09 {
 
             @Override
             public Double next() {
-                if(this.next == null && !this.hasNext()) {
+                if (this.next == null && !this.hasNext()) {
                     throw new NoSuchElementException();
                 } else {
                     Double var1 = this.next;
@@ -96,7 +98,7 @@ public class Question09 {
                 }
             }
         };
-        return StreamSupport.stream(Spliterators.spliteratorUnknownSize(var1 ,272), false);
+        return StreamSupport.stream(Spliterators.spliteratorUnknownSize(var1, 272), false);
     }
     /**
      * BufferedReader lines method를 참고하여 Scanner 객체를 받는 메소드들로 만들었다.

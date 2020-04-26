@@ -20,9 +20,9 @@ public class Question11 {
         builder.start().waitFor(1, TimeUnit.SECONDS);
 
         builder = new ProcessBuilder("grep", "-o", "*main*");
-        File input = Paths.get("src","test","java","Chapter09","Question11.java").toFile();
+        File input = Paths.get("src", "test", "java", "Chapter09", "Question11.java").toFile();
         builder.redirectInput(input);
-        builder.redirectOutput(Paths.get("src","test","java","Chapter09","out11.txt").toFile());
+        builder.redirectOutput(Paths.get("src", "test", "java", "Chapter09", "out11.txt").toFile());
         builder.start().waitFor(1, TimeUnit.SECONDS);
 
     }

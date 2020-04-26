@@ -38,13 +38,13 @@ public class Question11 {
 
     public static ColorTransformer compose(ColorTransformer op1, ColorTransformer op2) {
         return (x, y, color) -> {
-            Color c = op1.apply(x,y,color);
-            return op2.apply(x,y,c);
+            Color c = op1.apply(x, y, color);
+            return op2.apply(x, y, c);
         };
     }
 
     public static ColorTransformer getColorTransformer(UnaryOperator<Color> op) {
-        return (x,y,color) -> {
+        return (x, y, color) -> {
             return op.apply(color);
         };
     }
@@ -56,7 +56,7 @@ public class Question11 {
         WritableImage out = new WritableImage(width, height);
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                out.getPixelWriter().setColor(x, y, colorTransformer.apply(x < 10 ? x : width-x, y < 10 ? y : height-y, in.getPixelReader().getColor(x,y)));
+                out.getPixelWriter().setColor(x, y, colorTransformer.apply(x < 10 ? x : width - x, y < 10 ? y : height - y, in.getPixelReader().getColor(x, y)));
             }
         }
         return out;
@@ -67,7 +67,7 @@ public class Question11 {
         return (x, y, color) -> {
             if (x < 10) {
                 return Color.GRAY;
-            } else if ( y < 10) {
+            } else if (y < 10) {
                 return Color.GRAY;
             }
             return color;

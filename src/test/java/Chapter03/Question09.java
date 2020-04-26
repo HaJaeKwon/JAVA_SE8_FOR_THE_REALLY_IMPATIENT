@@ -31,7 +31,7 @@ public class Question09 {
     public static <T> Comparator<T> lexicographicComparator(String... fieldNames) {
         return (v1, v2) -> {
             try {
-                for(String fieldName : fieldNames) {
+                for (String fieldName : fieldNames) {
                     Class c1 = v1.getClass();
                     Field f1 = c1.getDeclaredField(fieldName);
                     Class c2 = v2.getClass();

@@ -12,13 +12,14 @@ public class Question11 {
      * 각각은 void f() 메서드를 포함한다.
      * f가 I의 추상 메서드, 디폴트 메서드 또는 정적 메서드인 경우와
      * J의 추상 메서드, 디폴트 메서드 또는 정적 메서드인 경우 정확히 무슨일이 일어나는가?
-     *
+     * <p>
      * 클래스가 슈퍼 클래스 S를 확장하고 인터페이스 I를 구현하며 둘 모두 void f() 메서드를 포함하는 경우에
      * 대해서도 무슨 일이 일어나는지 설명하라
      */
 
     public interface I {
         void f();
+
         static void f2() {
             System.out.println("I f2");
         }
@@ -28,6 +29,7 @@ public class Question11 {
         default void f() {
             System.out.println("J f");
         }
+
         default void f2() {
             System.out.println("J f2");
         }

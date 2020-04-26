@@ -21,7 +21,7 @@ public class Question10 {
         double average = DoubleStream.of(1.2, 2.2, 3.2).average().getAsDouble();
         System.out.println(average);
 
-        double average2 = Stream.of(1.2, 2.2, 3.2).reduce((x,y) -> x+y).orElse(0.0) / 3;
+        double average2 = Stream.of(1.2, 2.2, 3.2).reduce((x, y) -> x + y).orElse(0.0) / 3;
         System.out.println(average2);
 
         double[] arr = {1.2, 2.2, 3.2};

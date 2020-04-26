@@ -29,7 +29,10 @@ public class Question09 {
         System.out.println(arr2);
 
         listStream = Stream.of(arr1, arr2);
-        Optional<ArrayList<String>> result1 = listStream.reduce((x, y) -> { x.addAll(y); return x; });
+        Optional<ArrayList<String>> result1 = listStream.reduce((x, y) -> {
+            x.addAll(y);
+            return x;
+        });
         System.out.println("reduce function type 1");
         result1.ifPresent(list -> list.forEach(System.out::println));
 
@@ -37,7 +40,10 @@ public class Question09 {
         System.out.println(arr2);
 
         listStream = Stream.of(arr1, arr2);
-        ArrayList<String> result2 = listStream.reduce(new ArrayList<>(), (x, y) -> { x.addAll(y); return x; });
+        ArrayList<String> result2 = listStream.reduce(new ArrayList<>(), (x, y) -> {
+            x.addAll(y);
+            return x;
+        });
         System.out.println("reduce function type 2");
         result2.forEach(System.out::println);
 
@@ -45,7 +51,13 @@ public class Question09 {
         System.out.println(arr2);
 
         listStream = Stream.of(arr1, arr2);
-        ArrayList<String> result3 = listStream.reduce(new ArrayList<>(), (x, y) -> { x.addAll(y); return x; }, (x,y) -> { x.addAll(y); return x;});
+        ArrayList<String> result3 = listStream.reduce(new ArrayList<>(), (x, y) -> {
+            x.addAll(y);
+            return x;
+        }, (x, y) -> {
+            x.addAll(y);
+            return x;
+        });
         System.out.println("reduce function type 3");
         result3.forEach(System.out::println);
 

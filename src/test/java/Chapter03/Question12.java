@@ -36,7 +36,7 @@ public class Question12 {
         return (x, y, color) -> {
             if (x < 10) {
                 return Color.GRAY;
-            } else if ( y < 10) {
+            } else if (y < 10) {
                 return Color.GRAY;
             }
             return color;

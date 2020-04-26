@@ -40,7 +40,7 @@ public class Question08 {
         WritableImage out = new WritableImage(width, height);
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                out.getPixelWriter().setColor(x, y, colorTransformer.apply(x < 10 ? x : width-x, y < 10 ? y : height-y, in.getPixelReader().getColor(x,y)));
+                out.getPixelWriter().setColor(x, y, colorTransformer.apply(x < 10 ? x : width - x, y < 10 ? y : height - y, in.getPixelReader().getColor(x, y)));
             }
         }
         return out;
@@ -49,11 +49,11 @@ public class Question08 {
     public static ColorTransformer getFrameColorTransformer() {
         return (x, y, color) -> {
             if (x < 10) {
-                    return Color.GRAY;
-                } else if ( y < 10) {
-                    return Color.GRAY;
-                }
-                return color;
+                return Color.GRAY;
+            } else if (y < 10) {
+                return Color.GRAY;
+            }
+            return color;
         };
     }
 }

@@ -48,14 +48,14 @@ public class Question10 {
     }
 
     public String blockingReadPage(URL url) {
-         StringBuffer content = new StringBuffer();
+        StringBuffer content = new StringBuffer();
         try {
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 
             BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String inputLine;
-            while( (inputLine = in.readLine()) != null ) {
+            while ((inputLine = in.readLine()) != null) {
                 content.append(inputLine);
             }
             connection.disconnect();
@@ -75,10 +75,10 @@ public class Question10 {
         Pattern aPattern = Pattern.compile(HTML_TAG_PATTERN);
         Pattern hrefPattern = Pattern.compile(HTML_HREF_TAG_PATTERN);
         Matcher m = aPattern.matcher(html);
-        while(m.find()) {
+        while (m.find()) {
             String a = m.group(1);
             Matcher m2 = hrefPattern.matcher(a);
-            while(m2.find()) {
+            while (m2.find()) {
                 links.add(m2.group(1));
             }
         }

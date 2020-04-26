@@ -26,11 +26,11 @@ public class Question08 {
 
         Random random = new Random();
         int[] arrays = new int[max];
-        for (int i=0; i<max; i++) {
+        for (int i = 0; i < max; i++) {
             arrays[i] = random.nextInt();
         }
 
-        for (int i=min; i<max; i+=step) {
+        for (int i = min; i < max; i += step) {
             long parallelSortTime, sortTime;
             start = System.currentTimeMillis();
             Arrays.parallelSort(Arrays.copyOf(arrays, i));

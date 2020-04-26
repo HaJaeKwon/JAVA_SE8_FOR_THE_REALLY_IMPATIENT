@@ -20,7 +20,7 @@ public class Question05 {
     @Test
     public void solution() {
 
-        Stream<Long> infiniteStream = Stream.iterate(0L, n -> LinearCongruentialGenerator.generate(n, 25214903917L, 11L, (long)Math.pow(2, 48)));
+        Stream<Long> infiniteStream = Stream.iterate(0L, n -> LinearCongruentialGenerator.generate(n, 25214903917L, 11L, (long) Math.pow(2, 48)));
         infiniteStream.forEach(System.out::println);
 
     }
@@ -33,6 +33,6 @@ public class Question05 {
 
 class LinearCongruentialGenerator {
     public static long generate(long x, long a, long c, long m) {
-        return (a*x + c) % m;
+        return (a * x + c) % m;
     }
 }

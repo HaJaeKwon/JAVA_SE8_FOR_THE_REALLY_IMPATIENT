@@ -18,7 +18,7 @@ public class Question04 {
         char c = (char) 0xffff;
         c++;
         System.out.printf("%s\n", c);
-        System.out.printf("%d\n", (int)c);
+        System.out.printf("%d\n", (int) c);
 
     }
     /**

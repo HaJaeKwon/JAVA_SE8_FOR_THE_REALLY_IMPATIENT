@@ -39,7 +39,7 @@ public class LatentImage2 {
     }
 
     private ColorTransformer getColorTransformer(UnaryOperator<Color> op) {
-        return (x,y,color) -> {
+        return (x, y, color) -> {
             return op.apply(color);
         };
     }
@@ -50,7 +50,7 @@ public class LatentImage2 {
         WritableImage out = new WritableImage(width, height);
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                out.getPixelWriter().setColor(x, y, colorTransformer.apply(x < 10 ? x : width-x, y < 10 ? y : height-y, in.getPixelReader().getColor(x,y)));
+                out.getPixelWriter().setColor(x, y, colorTransformer.apply(x < 10 ? x : width - x, y < 10 ? y : height - y, in.getPixelReader().getColor(x, y)));
             }
         }
         return out;

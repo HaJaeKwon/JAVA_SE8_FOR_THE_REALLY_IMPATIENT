@@ -43,7 +43,7 @@ public class Question05 {
 
     static public void job(String jobName) {
         int result = 0;
-        for(int i=0; i<MAX_LOOP; i++) {
+        for (int i = 0; i < MAX_LOOP; i++) {
             result++;
         }
         System.out.println(String.format("%s result : %d", jobName, result));

@@ -64,7 +64,7 @@ public class Question13 extends AbstractProcessor {
 //        JavaFileObject sourceFile = processingEnv.getFiler().createSourceFile(methodName + "Test");
         PrintWriter out = new PrintWriter(sourceFile.openWriter());
         int i = methodName.lastIndexOf(".");
-        if (i>0) {
+        if (i > 0) {
             out.print("package ");
             out.print(methodName.substring(0, i));
             out.println(";");
@@ -77,8 +77,8 @@ public class Question13 extends AbstractProcessor {
         out.println("public static void main(String[] args)");
         out.println("{");
         out.println("   TestClass testClass = new TestClass();");
-        out.println("   if (testClass."+methodName+"("+param+") == "+result+")");
-        out.println(    "{");
+        out.println("   if (testClass." + methodName + "(" + param + ") == " + result + ")");
+        out.println("{");
         out.println("       System.out.println(\"TEST SUCCESS\");");
         out.println("    } else {");
         out.println("       System.out.println(\"TEST FAIL\");");

@@ -50,7 +50,7 @@ public class LatentImage3 {
             for (int y = 0; y < height; y++) {
                 Color color = cache.get(new Pair<>(x, y));
                 if (color == null) {
-                    color = in.getPixelReader().getColor(x,y);
+                    color = in.getPixelReader().getColor(x, y);
                 }
                 color = colorTransformer.apply(x, y, in.getPixelReader());
                 out.getPixelWriter().setColor(x, y, color);

@@ -32,13 +32,13 @@ public class Question14 {
             Image image = new Image(inputStream);
 
             LatentImage3 latentImage = LatentImage3.from(image)
-                    .transform( (x,y,pr) -> {
+                    .transform((x, y, pr) -> {
                         int[] DX = {-1, 0, 1};
                         int[] DY = {-1, 0, 1};
                         double sumRed = 0.0;
                         double sumGreen = 0.0;
                         double sumBlue = 0.0;
-                        for(int dx : DX) {
+                        for (int dx : DX) {
                             for (int dy : DY) {
                                 int _x = x + dx;
                                 int _y = y + dy;
@@ -53,7 +53,7 @@ public class Question14 {
                                 }
                             }
                         }
-                        return new Color(sumRed/9.0, sumGreen/9.0, sumBlue/9.0, 1);
+                        return new Color(sumRed / 9.0, sumGreen / 9.0, sumBlue / 9.0, 1);
                     });
 
             File outputFile = new File("./src/test/java/Chapter03/question14.png");

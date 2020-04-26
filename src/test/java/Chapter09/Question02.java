@@ -24,7 +24,7 @@ public class Question02 {
             in = new Scanner(Paths.get("./src/test/java/Chapter02/alice.txt"));
             out = new PrintWriter("./src/test/java/Chapter09/out.txt");
 
-            while(in.hasNext()) {
+            while (in.hasNext()) {
                 out.println(in.next().toLowerCase());
             }
 

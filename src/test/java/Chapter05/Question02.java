@@ -15,18 +15,18 @@ public class Question02 {
     @Test
     public void solution() {
         LocalDate date;
-        date = LocalDate.of(2000,2,29).plusYears(1L);
+        date = LocalDate.of(2000, 2, 29).plusYears(1L);
         System.out.println(date.getYear());
         System.out.println(date.getMonthValue());
         System.out.println(date.getDayOfMonth());
 
 
-        date = LocalDate.of(2000,2,29).plusYears(4L);
+        date = LocalDate.of(2000, 2, 29).plusYears(4L);
         System.out.println(date.getYear());
         System.out.println(date.getMonthValue());
         System.out.println(date.getDayOfMonth());
 
-        date = LocalDate.of(2000,2,29).plusYears(1L).plusYears(1L).plusYears(1L).plusYears(1L);
+        date = LocalDate.of(2000, 2, 29).plusYears(1L).plusYears(1L).plusYears(1L).plusYears(1L);
         System.out.println(date.getYear());
         System.out.println(date.getMonthValue());
         System.out.println(date.getDayOfMonth());

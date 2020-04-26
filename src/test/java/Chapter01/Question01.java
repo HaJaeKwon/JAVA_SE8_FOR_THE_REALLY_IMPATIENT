@@ -18,9 +18,9 @@ public class Question01 {
     @Test
     public void solution() {
         List<String> list = Arrays.asList("dog", "cat", "cow", "sheep");
-        String[] arr = new String[] { "dog", "cat", "cow", "sheep" };
+        String[] arr = new String[]{"dog", "cat", "cow", "sheep"};
 
-        Comparator<String> comp = (x,y) -> {
+        Comparator<String> comp = (x, y) -> {
             System.out.println(String.format("Thread Id : %d", Thread.currentThread().getId()));
             return x.compareTo(y);
         };

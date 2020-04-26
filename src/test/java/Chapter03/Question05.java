@@ -32,7 +32,7 @@ public class Question05 {
             Image frameImage = transform(image, (in, x, y) -> {
                 if (x < 10 || in.getWidth() - x < 10) {
                     return Color.GRAY;
-                } else if ( y < 10 || in.getHeight() - y < 10) {
+                } else if (y < 10 || in.getHeight() - y < 10) {
                     return Color.GRAY;
                 }
                 return in.getPixelReader().getColor(x, y);

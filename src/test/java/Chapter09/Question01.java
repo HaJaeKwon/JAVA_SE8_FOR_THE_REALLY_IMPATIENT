@@ -17,7 +17,7 @@ public class Question01 {
      * try-with-resources 문을 사용하지 않고 구현하라.
      * 두 객체가 제대로 생성된 경우 반드시 닫아야 한다.
      * 다음 상황을 고려해야 한다.
-     *
+     * <p>
      * Scanner 생성자는 예외를 던진다
      * PrintWriter 생성자는 예외를 던자
      * hasNext, next 또는 println은 예외를 던진다
@@ -31,7 +31,7 @@ public class Question01 {
             in = new Scanner(Paths.get("./src/test/java/Chapter02/alice.txt"));
             out = new PrintWriter("./src/test/java/Chapter09/out.txt");
 
-            while(in.hasNext()) {
+            while (in.hasNext()) {
                 out.println(in.next().toLowerCase());
             }
 

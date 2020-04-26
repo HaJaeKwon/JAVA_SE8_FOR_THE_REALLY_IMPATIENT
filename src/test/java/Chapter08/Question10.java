@@ -21,9 +21,9 @@ public class Question10 {
     public void solution() {
         File src = new File("C:\\Program Files\\Java\\jdk1.8.0_181\\src");
         try {
-            Files.walk(Paths.get(src.getAbsolutePath())).filter( p -> {
+            Files.walk(Paths.get(src.getAbsolutePath())).filter(p -> {
                 return !p.toFile().isDirectory();
-            }).filter( p -> {
+            }).filter(p -> {
                 String contents = "";
                 try {
                     contents = new String(Files.readAllBytes(p), StandardCharsets.UTF_8);
